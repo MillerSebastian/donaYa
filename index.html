@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>donaYa - Sistema de Donaciones Adaptable</title>
+    <meta name="description" content="Widget de donaciones adaptable para cualquier sitio web. Integra donaYa y permite a tus usuarios ayudar a familias vulnerables.">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <style>
+      .animate-scale-up {
+        animation: scaleUp 0.3s ease-out;
+      }
+      
+      @keyframes scaleUp {
+        from {
+          transform: scale(0.9);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>
