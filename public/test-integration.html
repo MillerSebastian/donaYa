@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página de Prueba - donaYa Widget</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        margin: 0;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 12px;
+        padding: 40px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .header h1 {
+        color: #1f2937;
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+      .header p {
+        color: #6b7280;
+        font-size: 1.2rem;
+      }
+      .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+      .demo-section {
+        background: #f9fafb;
+        padding: 30px;
+        border-radius: 8px;
+        border: 2px dashed #d1d5db;
+      }
+      .demo-section h3 {
+        color: #374151;
+        margin-bottom: 15px;
+      }
+      .code-section {
+        background: #1f2937;
+        color: #f9fafb;
+        padding: 20px;
+        border-radius: 8px;
+        font-family: "Monaco", "Menlo", monospace;
+        font-size: 14px;
+        overflow-x: auto;
+      }
+      .code-section pre {
+        margin: 0;
+      }
+      .highlight {
+        background: #fef3c7;
+        padding: 2px 4px;
+        border-radius: 4px;
+      }
+      .instructions {
+        background: #ecfdf5;
+        border: 1px solid #10b981;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 30px;
+      }
+      .instructions h3 {
+        color: #065f46;
+        margin-top: 0;
+      }
+      .instructions ol {
+        color: #047857;
+        line-height: 1.6;
+      }
+      .test-buttons {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        margin-top: 30px;
+      }
+      .btn {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .btn-primary {
+        background: #10b981;
+        color: white;
+      }
+      .btn-primary:hover {
+        background: #059669;
+        transform: translateY(-2px);
+      }
+      .btn-secondary {
+        background: #3b82f6;
+        color: white;
+      }
+      .btn-secondary:hover {
+        background: #2563eb;
+        transform: translateY(-2px);
+      }
+      .status {
+        text-align: center;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+      }
+      .status.success {
+        background: #d1fae5;
+        color: #065f46;
+        border: 1px solid #10b981;
+      }
+      .status.error {
+        background: #fee2e2;
+        color: #991b1b;
+        border: 1px solid #ef4444;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🧪 Página de Prueba - donaYa Widget</h1>
+        <p>
+          Esta página simula un sitio web real con el widget donaYa integrado
+        </p>
+      </div>
+
+      <div class="instructions">
+        <h3>📋 Instrucciones de Prueba</h3>
+        <ol>
+          <li>
+            El widget donaYa debería aparecer como un botón flotante verde en la
+            esquina inferior derecha
+          </li>
+          <li>Haz clic en el botón para abrir el modal de donaciones</li>
+          <li>Prueba las diferentes categorías de donación</li>
+          <li>Verifica que las notificaciones funcionen correctamente</li>
+          <li>
+            Usa los botones de abajo para probar diferentes configuraciones
+          </li>
+        </ol>
+      </div>
+
+      <div class="content">
+        <div class="demo-section">
+          <h3>🎯 Widget en Acción</h3>
+          <p>
+            El widget donaYa está integrado en esta página. Busca el botón
+            flotante verde con el icono de casa (🏠) en la esquina inferior
+            derecha.
+          </p>
+
+          <div class="test-buttons">
+            <button class="btn btn-primary" onclick="testWidget()">
+              Probar Widget
+            </button>
+            <button class="btn btn-secondary" onclick="changeConfig()">
+              Cambiar Config
+            </button>
+          </div>
+
+          <div id="status" class="status" style="display: none"></div>
+        </div>
+
+        <div class="demo-section">
+          <h3>💻 Código de Integración</h3>
+          <p>
+            Para integrar donaYa en tu sitio web, simplemente agrega este
+            código:
+          </p>
+
+          <div class="code-section">
+            <pre>&lt;!-- Integra donaYa en tu sitio web --&gt;
+&lt;script src="<span class="highlight">./widget.js</span>"&gt;&lt;/script&gt;
+&lt;script&gt;
+  donaYa.init({
+    position: 'bottom-right',
+    theme: 'default',
+    organizationId: 'mi-organizacion',
+    color: '#10B981'
+  });
+&lt;/script&gt;</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h3>🔧 Configuraciones Disponibles</h3>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+          "
+        >
+          <div>
+            <strong>Posición:</strong><br />
+            • bottom-right<br />
+            • bottom-left<br />
+            • top-right<br />
+            • top-left
+          </div>
+          <div>
+            <strong>Tema:</strong><br />
+            • default<br />
+            • dark<br />
+            • light
+          </div>
+          <div>
+            <strong>Color:</strong><br />
+            • #10B981 (verde)<br />
+            • #3B82F6 (azul)<br />
+            • #EF4444 (rojo)<br />
+            • Personalizado
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script de donaYa -->
+    <script src="./widget.js"></script>
+    <script>
+      // Inicializar donaYa con configuración por defecto
+      donaYa.init({
+        position: "bottom-right",
+        theme: "default",
+        organizationId: "test-org",
+        color: "#10B981",
+      });
+
+      // Función para probar el widget
+      function testWidget() {
+        if (window.donaya) {
+          window.donaya.open();
+          showStatus("Widget abierto correctamente", "success");
+        } else {
+          showStatus("Error: Widget no está cargado", "error");
+        }
+      }
+
+      // Función para cambiar configuración
+      function changeConfig() {
+        const colors = ["#10B981", "#3B82F6", "#EF4444", "#8B5CF6"];
+        const positions = [
+          "bottom-right",
+          "bottom-left",
+          "top-right",
+          "top-left",
+        ];
+
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        const randomPosition =
+          positions[Math.floor(Math.random() * positions.length)];
+
+        // Destruir widget actual
+        if (window.donaya) {
+          window.donaya.destroy();
+        }
+
+        // Crear nuevo widget con configuración aleatoria
+        setTimeout(() => {
+          donaYa.init({
+            position: randomPosition,
+            theme: "default",
+            organizationId: "test-org",
+            color: randomColor,
+          });
+          showStatus(
+            `Configuración cambiada: ${randomPosition}, ${randomColor}`,
+            "success"
+          );
+        }, 100);
+      }
+
+      // Función para mostrar estado
+      function showStatus(message, type) {
+        const status = document.getElementById("status");
+        status.textContent = message;
+        status.className = `status ${type}`;
+        status.style.display = "block";
+
+        setTimeout(() => {
+          status.style.display = "none";
+        }, 3000);
+      }
+
+      // Mostrar estado de carga
+      window.addEventListener("load", () => {
+        showStatus("Página cargada. Widget donaYa listo para usar.", "success");
+      });
+    </script>
+  </body>
+</html>
